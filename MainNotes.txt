@@ -1,0 +1,609 @@
+Angular 2/3/4/6/9
+Banuprakash C
+Co-founder: Lucida Technologies Pvt Ltd.
+banu@lucidatechnologies.com
+banuprakashc@yahoo.co.in
+==========================
+Softwares Required:
+1) Chrome Webbrowser
+2) Visual Studio Code
+3) NodeJS
+
+node --version
+
+================================
+    
+    JavaScript:
+        Scripting language,
+        OO and Functional programming
+        Interpretted not compiled
+        loosely typed:
+         data type is decided based on run time literal value.
+
+        var test;
+        
+        var name = "Tim";
+        console.log(name.toUpperCase());
+        name = 22;
+        name++;
+        ---
+        Event based, callbacks
+        single threaded
+
+        ------------
+
+        first.js
+
+        console.log("Hello!!!");
+
+        $("#btn").on("click", function handleClick() {
+            console.log("Clicked !!!");
+        });
+
+        setInterval(function timeout() {
+            console.log("Timeout!!!");
+        }, 100);
+
+        console.log("Bye!!!");
+
+        ---------------------------
+
+        JavaScript runs on JS engine: 
+            V8 engine ==> google ==> used in chrome and nodejs
+            SpiderMonkey ==> Firefox, Adobe products
+            Chakra, continnum --> Microsoft
+            Nashhorn ==> Oracle, Java
+        ------------------------------------
+
+        All engines by default support ES5 ==> ECMA Script 5 version of JS
+
+        as of ES5 only way to declare a variable is using "var" keyword
+
+        scope:
+
+            var g = 100;
+
+            function doTask() {
+                var a = 10;
+                if( g > a) {
+                    var b = 20; // hoisted to function scope
+                    c = 30;
+                }
+                console.log(g,a,b,c);
+
+            }
+            doTask();
+            console.log(g,a,b,c);
+            ===
+
+            changes to:
+
+            var g = 100;
+            var c;
+            function doTask() {
+                var a = 10;
+                var b;
+                if( g > a) {
+                    b = 20;
+                    c = 30;
+                }
+                console.log(g,a,b,c);
+
+            }
+            doTask();
+            console.log(g,a,b,c);
+
+            ========
+
+            good practice:
+
+            "use strict";
+
+            this will not allow implicit variables
+
+            c = 30; // error
+
+    ===================================================================================
+
+        function add(x,y) {
+            return x + y;
+        }
+
+        var res = add(4,5);
+
+        console.log(res); // 9
+
+        --------------
+
+        function add(x,y) {
+             console.log(x + y); // 9
+        }
+
+        var res = add(4,5);
+
+        console.log(res); // undefined
+
+        types:
+            undefined, number, string, boolean, object, array, null
+
+        var add = new Function("x", "y", "return x + y;");
+
+        ----------
+        semi colon insertion
+
+        function add(x,y) {
+            return 
+                x + y;
+        }
+
+        var res = add(4,5);
+
+        console.log(res); // undefined
+
+
+
+        function simple() {
+            return {
+
+            }
+        }
+
+        ---------------------------------------
+
+        JS arrays: []
+
+        var data = [5,6,898];
+        console.log(data[0]);
+
+        data[99] = 63; // bad practice
+
+        use :
+        data.push(99); 
+
+        ---------------------------------
+
+        var data; // variant type
+
+        data = [];
+
+        data = function () {
+
+        }
+
+        Objects in JS:
+            1) using Object:
+
+                var obj = new Object();
+                obj.id = 10;
+                obj.name = "Peter";
+                obj.getDetails = function() {
+                    return this.id + "," + this.name
+                }
+
+                Recommended way:
+                Object.defineProperty(obj,"id", { "value" : 10});
+
+
+            2)  constructor pattern:
+                a) object owned instance methods:
+                function Person(name, age) {
+                    this.name = name;
+                    this.age = age;
+
+                    this.getDetails = function() {
+                        return this.name + "," + this.age;
+                    }
+                }
+
+                var p1 = new Person("a", 22);
+                var p2 = new Person("b", 42);
+                console.log(p1.getDetails()); // a, 22
+                console.log(p2.getDetails()); // b, 42
+
+                b) class owned instance methods:
+
+                    function Person(name, age) {
+                        this.name = name;
+                        this.age = age;
+                    }
+
+                    Person.prototype.getDetails = function() {
+                        return this.name + "," + this.age;
+                    }
+
+                    Person.compare = function(p1, p2) {
+                        return p1.age > p2.age;
+                    }
+
+                var p1 = new Person("a", 22);
+                var p2 = new Person("b", 42);
+                console.log(p1.getDetails()); // a, 22
+                console.log(p2.getDetails()); // b, 42
+
+                if(Person.compare(p1,p2)) {
+                    // 
+                }
+
+                String.prototype.makeItRed = function() { return "<font color='red'>" + this + "</font>" }
+
+
+            3) JSON:
+
+                JavaScript Object Notation {}
+
+                var obj = {}
+
+                var person = {
+                    id : 11,
+                    name : "Peter",
+                    getDetails : function () {
+                        return this.id + "," + this.name;
+                    }
+                };
+
+                var product = {
+                    id: 14,
+                    "name" : 'iPhone 11'
+                };
+
+                var f = person.getDetails.bind(person);
+                f();
+
+                ============
+
+
+                var person = {
+                    id : 11,
+                    name : "Peter",
+                    getDetails : function () {
+                        return this.id + "," + this.name;
+                    }
+                };
+
+                var product = {
+                    id: 14,
+                    "name" : 'iPhone 11'
+                };
+
+                var f = person.getDetails;
+
+                f.call(person);
+                f.call(product);
+
+                ============================================
+
+        Functional Style of programming:
+        OOP                                     Functional Style
+    1) methods tightly coupled to state         functions not coupled to state of object
+    2) mutate the state                         doesn't change the state, rather give a new copy
+
+    Functional Style of programming uses HOF: High order functions.
+
+    HOF:
+        a) functions which accept other functions as arguments
+        b) functions which return a function
+
+        commonly used HOF: map, filter, reduce, forEach, sort, limit, skip, sum,....
+
+        filter: subset based on predicate
+        map: transform data [ ReactJS]
+            product ==> names
+            product ===> <tr></tr>
+        reduce: aggregate [ sum, max, count ]
+
+        
+        http://collabedit.com/k4k72
+
+        =================================
+
+
+
+        function add(x,y) { 
+            return x + y;
+        }
+
+        function adder(base) {
+            return function(no) {
+                return base + no;
+            }
+        }
+
+
+        var fiveAdder = adder(5);
+
+        console.log(fiveAdder(3)); // 8
+        console.log(fiveAdder(2)); // 7
+
+        var tenAdder = adder(10);
+        console.log(tenAdder(2)); // 12
+
+        console.log(adder(2)(3)); //5
+
+        ----
+
+        var g = 100;
+
+        function outer() {
+            var a = 10;
+            function inner() {
+                var b = 20;
+                console.log(a,b,g);
+            }
+        }
+
+
+
+        ====
+        function adder(base) {
+            return function(no) {
+                    return function(newno) {
+                        return base + no + newno;
+                    }
+                    
+            }
+        }
+
+        console.log(adder(2)(3)(5));
+=======================================================================
+
+    ES6 ==> ECMAScript 2015 ==> ES 2015
+    ES7 ==> ESNext
+
+        Most of the engines yet to support this version, so we use transpilers to convert
+        ES6/7 to lower version
+
+        Babel, Traucer are popular transpilers
+
+        ----
+
+        ES6 features:
+
+        1) Scope 
+            new keywords "let" and "const" to introduce scope members
+            const PI = 3.14159; // constant
+
+            var g = 100;
+
+            function doTask() {
+                var a = 10;
+                if( g > a) {
+                    let b = 20; // scope within block
+                    c = 30;
+                }
+                console.log(g,a,b,c); // b is not visible
+
+            }
+            doTask();
+            console.log(g,a,b,c);
+
+        2) Arrow opertors and default values:
+
+            let add = (x,y) => {
+                return x + y;
+            }
+
+            let sub = (x = 10,y= 3) => x - y;
+
+            console.log(sub()); 7
+            console.log(sub(20)); 17
+            console.log(sub(2,1)); // 1
+
+        3) New String literal ``    
+        
+            var name = "Smith";
+
+            var msg = `
+                This is first line.
+                This is second line.
+                Name is ${name}
+            `;      
+
+        4) Deconstructing:
+            a) arrays
+
+                var colors = ['red','green','blue','orange','black'];
+
+                old way: colors[2];
+
+                let r = colors[0];
+                let g = colors[1];
+                let b = colors[2];
+
+                New way:
+
+                var [r,g,b,...others] = colors;
+
+                console.log(g); // green
+
+            b) Object
+
+            let p = { id: 1, name: "iPhone", price: 124447.44, category: "mobile" };
+
+            old:
+                p.name;
+                p["name"]
+            Deconstructing:
+
+                let {name,price} = p;
+
+                console.log(name) ; // iPhone
+
+            ---------------------
+
+            function some({name, price}) {
+
+            }
+
+            let p = { id: 1, name: "iPhone", price: 124447.44, category: "mobile" };
+            some(p);
+
+            ---
+            let ob = {"id": 1, "name":"S"};
+            let r = ob; // reference
+            let mn = {...ob}; // copy
+
+            any chnages done to mn will not change ob
+
+            old way:
+
+            let ob = {"id": 1, "name":"S"};
+
+            let newob = Object.assign({}, ob);
+
+        ======================================================================
+        
+        5) class
+
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            getDetails() {
+                return this.name;
+            }
+        }   
+
+
+        let p = new Person("A",55);
+
+        p.getDetails(); 
+
+        ====================
+
+        6) Promise API
+
+            for Asynchronous methods
+
+            Synchronous:
+
+            function doTask() {
+
+            }
+
+            let res = doTask();
+            console.log("done!!!"); // code is blocked till doTask() completes
+
+            ---
+
+
+            ASynchronous:
+
+            function doTask() {
+
+            }
+
+            doTask().then(function(data) {
+
+            },
+            function(rej) {
+
+            }).catch(err) {
+
+            }
+
+
+            somelengthTask();
+
+        =============
+        Generators:
+
+         function* tasks() {
+            //
+             yield "one";
+             ///
+             yield "two";
+             yield "three";
+         }
+
+
+         let iter = tasks(); // returns an iterator
+         iter.next(); 
+            
+         =================================
+
+         Node JS:
+            provides JavaScript environment on top of V8 engine.
+         What can i use NodeJS for?
+            a ) to write server side JavaScript code
+                ==> build traditional web applications like:
+                    a) ASP.NET
+                    b) Servlet and JSP
+                    ---
+                    It gives View Templates like PUG, EJS, JADE similar to ASP or JSP
+
+            b) Build REST APIs
+
+            c) Use it as environment to develop client side web applications:
+                i) REACT ii) Angular iii) Vue
+
+            Common things we do on development code before it goes to production:
+                a) Transpile / Compile
+                b) Minify : remove all blank spaces
+                c) Uglify: smaller names to functions and variables
+                d) Lint : 
+                e) run tests
+
+            npm i -g typescript
+
+            tsc --version
+
+            ==============
+
+            TypeScript: JS on steriods
+            ==> concept of datatypes only at transpile stage
+
+            let a:string = "Smith";
+
+            a = 10; //error
+
+
+
+            let b:number = 22;
+
+            let x = 12;
+
+            ============
+
+            package.json ==> pom.xml
+                manages dependencies
+
+            JS development tools:
+                Grunt, Gulp, Webpack
+
+
+            =========
+
+            createapp.dev
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+==============JAVASCRIPT==================
+* Loosely typed
+
+* data type is based on run time literal value
+
+* JS runs on JS engine, this engine comes with browser
+ - V8 engine ==> google ==> used in chrome and node js
+ - SpiderMonkey ==> Firefox, Adobe peoducts
+ - Chakra , continnum --> Microsoft
+ - Nashhorn ==> Oracle , Java
+
+* All engines by default support
+
+* In JS, function scope and global scope
+
+* "use strict",this will not allow implicit variables
+
+* Funtion is object in Java script.
+
+var res=function add(x , y){
+return x+y;
+}
+
+simillar to==> var res=new Function("x","y",return x+y);
+
+* semicolon insertion
+
+* object owned instance methods and Class owned instance method
+
+* static methods (without using prototype keyword)
+
+* using prototype is better option in terms of memmory allocation.
+
+* JSON
+
+* Functional Style of programming:
+
+-OOP
+
+* code . //to launch vs code from command prompt
+
+* !+ENTER to get template HTML code in VS code editor.
+
+* rxmarbles.com
+* http://collabedit.com/
+
+* Closure concept for functions
+* Currying (f(12)(4))
+
+
+* Transpilers are used to convert ES6/7 to lower version. since most of the engines yet to support this version
+* Babel, Traucer are popular transpilers
+
+* with var thier is only global and funational level scope. In ES6 let has been introduced to give scope at block level.
+
+* ES6----ECMA SCIPT 6 (
+- let and const keywords 
+- default values has been introduced
+- New String Literal has been introduced `` , concat can be done using ${place_holder} without using +
+- Deconstructing:
+	=>arrays
+		var a=['red','green'];
+
+
+
+- Object Deconstucting:
+
+- Promise API
+ 
+- Generators work in seperate threads.
+use WebWorkers/SAGA
+
+
+======================================================NODE JS===================================
+provides java scrript env on top of V8 engine
+
+-> To write server side javascript code
+-> we can use it as env to develop client side web app
+ 
+====================================================Type Script====================
+* Concept of visibility and data type just added in typeScript
+
+* npm install -g typescript
+
+* tsc .\<TypeScript_File_name>  //To transpil from ts to js
+
+* GRUNT, webpack are the task runners to bundle js files
+
+
+======================================================================DAY2=============================================================================================
+
+* export we can use to function,class,variable,const ....anything.
+* All ts, js files are bundled in bundle.js this will be done by webpack task runner
+* npm i ( all dependies will get loaded from package.json)
+* npm run build-dev (for dev env) check package.json    //(To run with webpack)
+* npm run build-prod (for prod env) check package.json //ugglyfying and linting will be done by webpack task runner. //(To run with webpack)
+* ts Decorators only available in ts
+* user-defined decorators has to be configured in tsconfig.json ,  "experimentalDecorators": true and  "noImplicitAny": false	
+* node . index.js (To run without webpack)
+
+
+
+
+================================Angular=====================
+* RWD(Responsive Web Design) -->CSS 3 using media queries ==> we can use library Bootstrap
+
+ and SPA
+this is client side rendering
+Traditional web application does server side rendering
+
+
+
+* wire frames
+
+
+
+
+ng new customerapp //project will be created with package.json and webpack and all necessary required configurations
+
+
+* caniuse.com // browser compatibility we can check in this website
