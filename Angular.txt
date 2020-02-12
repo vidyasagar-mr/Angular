@@ -1,0 +1,41 @@
+-----------Routing------------------
+- <router-outlet> is the directive, It acts as a placeholder that marks the spot in the template where the router should display the components for that outlet.
+- forRoot can be used only once in app, forChild can be used many places
+- main chunk in broken using lazy loading
+* Loading and Rendering 
+
+-----------------Service--------------
+* Observable vs Promise
+* Flux and mono in spring boot
+* npm i -g json-server (for rest api end points used in angular)
+JSON server: front end better to work with json server to check CURD operations, here we have to pass json file to server.place in root folder
+customers and orders acts as end point URIs
+
+Execute this command to run serever with port:-  json-server --watch .\data.json --port 3000
+---watch is to get end points in json file
+
+* TypeScript supports only constructor dependency injection. class should marked as @Injectable()
+
+
+
+
+* from parent component if we need to access state or behaviour of child component use decorator @ViewChild
+* template variable
+* ParseInt is +params
+
+* use subject to pass data between components which are not parent or child each other.
+* subject is combination of both observer and observable
+
+*  npm install primeng primeicons chart.js @angular/animations //primeng is open souce or kendoui is best but licenced
+
+
+* PIPE ..it has to be declared in app.module and it can be used anywhere
+
+* Directives are used along with component.it doestnt have styles or htmls ===> ng g directive <directive_name>
+
+* Keep logic which changes the state of properties for styling write logic inside directive
+
+
+* Interceptors
+It is simillar to filer in J2EE. all requests passes via interceptors
+-Angular----->Interceptor----------->Outside world
