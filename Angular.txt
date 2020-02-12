@@ -36,6 +36,9 @@ Execute this command to run serever with port:-  json-server --watch .\data.json
 * Keep logic which changes the state of properties for styling write logic inside directive
 
 
+********https://github.com/BanuPrakash/SG
+
+
 * Angular Project Building:- ng build
 
 
