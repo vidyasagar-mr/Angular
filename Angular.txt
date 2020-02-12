@@ -36,6 +36,9 @@ Execute this command to run serever with port:-  json-server --watch .\data.json
 * Keep logic which changes the state of properties for styling write logic inside directive
 
 
+* Angular Project Building:- ng build
+
+
 * Interceptors
 It is simillar to filer in J2EE. all requests passes via interceptors
 -Angular----->Interceptor----------->Outside world
