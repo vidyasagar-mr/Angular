@@ -13,6 +13,10 @@ import {HttpClientModule} from '@angular/common/http';
 import { DataService } from 'src/common/data.service';
 import { OrdersModule } from './orders/orders.module';
 import { LinkActivate } from './link.activate';
+import { OneComponent } from './one/one.component';
+import { TwoComponent } from './two/two.component';
+import { ThreeComponent } from './three/three.component';
+import { HoverDirective } from './hover.directive';
 //import { OrderComponent } from './orders/order/order.component';
 
 const routes:Route[]=[{
@@ -46,7 +50,11 @@ const routes:Route[]=[{
     CustomersCardComponent,
     CustomersListComponent,
     HomeComponent,
-    CustomerEditComponent
+    CustomerEditComponent,
+    OneComponent,
+    TwoComponent,
+    ThreeComponent,
+    HoverDirective
    // OrderComponent
   ],
   imports: [
