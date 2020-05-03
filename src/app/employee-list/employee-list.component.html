@@ -1,0 +1,4 @@
+<div *ngFor="let emp of employee_repo">
+    <app-employee-display [employee]="emp" (employeeEvent)="onDeleting($event)">
+    </app-employee-display>
+</div>
