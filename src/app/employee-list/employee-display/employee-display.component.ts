@@ -1,25 +1,28 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Employee } from '../employee.model';
 
 @Component({
   selector: 'app-employee-display',
-  templateUrl: './employee-display.component.html',
-  styleUrls: ['./employee-display.component.css']
+  templateUrl: './employee-display.component.html'
 })
 export class EmployeeDisplayComponent implements OnInit {
 
- @Input() public employee:Employee;
+  @Input() public employee:Employee;
 
- @Output() employeeEvent:EventEmitter<Employee>=new EventEmitter<Employee>();
+  @Output() employeeEvent:EventEmitter<Employee>=new EventEmitter<Employee>();
+ 
+  isHidden:boolean=true;
 
-  constructor() { }
+   constructor() { }
+ 
+   ngOnInit() {
+   }
+ 
+   onClickingDelete(emp:Employee):void{
+     this.employeeEvent.emit(emp);
+ 
+   }
 
-  ngOnInit() {
-  }
 
-  onClickingDelete():void{
-    this.employeeEvent.emit(this.employee);
-
-  }
 
 }
