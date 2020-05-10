@@ -1,24 +1,18 @@
 <div class="row">
     <div class="panel-group col-md-6">
-        <div class="panel panel-primary ">
-
-            <div class="panel-heading"><b>{{employee.name}}</b></div>
-            <div class="panel-body ">
-                <div class="pull-left">
-                    <p><b>EmployeeID: </b>{{employee.id}}</p>
-                    <p><b>EmployeeAge: </b>{{employee.age}}</p>
-                </div>
-
-                <span class="pull-right">
-                    <img [src]="employee.photoPath" class="img-responsive" style="max-height: 130px;">
-                </span>
+        <div class="panel panel-primary">
+            <div class="panel-heading" (click)="isHidden===true?isHidden=false:isHidden=true">
+                <ng-content select=".myPanelHeading">
+                </ng-content>
             </div>
-
-            <div class="panel-footer">
-                <button class="btn btn-primary" (click)="onClickingDelete()">Delete</button>
+            <div class="panel-body" [hidden]="isHidden" appColorDisplay [defaultColor]="'transparent'" [highlightedColor]="'yellow'">
+                <ng-content select=".myPanelBody">
+                </ng-content>
             </div>
-
+            <div class="panel-footer"> 
+                <ng-content select=".myPanelFooter">
+                </ng-content>
+            </div>
         </div>
-
     </div>
 </div>
