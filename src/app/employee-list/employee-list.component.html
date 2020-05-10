@@ -1,19 +1,4 @@
 <div *ngFor="let emp of employee_repo">
-        <app-employee-display (employeeEvent)="onDeleting($event)" #childRef>
-                <div class="myPanelHeading">
-                        <b>{{emp.name}}</b>
-                </div>
-                <div class="myPanelBody">
-                        <div class="pull-left">
-                                <p><b>EmployeeID: </b>{{emp.id}}</p>
-                                <p><b>EmployeeAge: </b>{{emp.age}}</p>
-                        </div>
-                        <span class="pull-right">
-                                <img [src]="emp.photoPath" class="img-responsive" style="max-height: 130px;">
-                        </span>
-                </div>
-                <div class="myPanelFooter">
-                        <button class="btn btn-primary" (click)="childRef.onClickingDelete(emp)">Delete</button>
-                </div>
+        <app-employee-display [employee]="emp" (employeeEvent)="onDeleting($event)">
         </app-employee-display>
-</div>
+    </div>
