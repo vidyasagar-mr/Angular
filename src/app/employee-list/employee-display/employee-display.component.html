@@ -5,7 +5,7 @@
                 <ng-content select=".myPanelHeading">
                 </ng-content>
             </div>
-            <div class="panel-body" [hidden]="isHidden" appDisplayName>
+            <div class="panel-body" [hidden]="isHidden" appDisplayName [defaultColor]="'transparent'" [highlightedColor]="'yellow'">
                 <ng-content select=".myPanelBody">
                 </ng-content>
             </div>
