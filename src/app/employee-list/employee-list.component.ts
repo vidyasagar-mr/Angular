@@ -10,13 +10,14 @@ export class EmployeeListComponent implements OnInit{
 
 @ViewChild(EmployeeDisplayComponent,{static:false}) employeeDisplayComponent:EmployeeDisplayComponent;
 
-
 constructor() {}
 
 ngOnInit() {
 }
 employee_repo:Employee[]=[{id:123,name:'Nikhil',age:26,photoPath:'https://filmfare.wwmindia.com/content/2020/feb/hrithikroshan41582899194.jpg'},
-{id:124,name:'Mohan',age:27,photoPath:'https://filmfare.wwmindia.com/content/2020/feb/hrithikroshan41582899194.jpg'}];
+{id:124,name:'Mohan',age:27,photoPath:'https://filmfare.wwmindia.com/content/2020/feb/hrithikroshan41582899194.jpg'},
+{id:125,name:'Kiran',age:32,photoPath:'https://filmfare.wwmindia.com/content/2020/feb/hrithikroshan41582899194.jpg'},
+{id:126,name:'Harish',age:35,photoPath:'https://filmfare.wwmindia.com/content/2020/feb/hrithikroshan41582899194.jpg'}];
 
 onDeleting(emp_delete:Employee):void{
 let emp_Index:number= this.employee_repo.indexOf(emp_delete);

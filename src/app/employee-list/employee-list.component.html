@@ -1,5 +1,6 @@
 <div *ngFor="let emp of employee_repo">
-        <app-employee-display (employeeEvent)="onDeleting($event)" #childRef>
+        <!--Custom structural direcive is used to filter employees only age <=30 -->
+        <app-employee-display (employeeEvent)="onDeleting($event)" #childRef *appUnless="emp.age<=30">
                 <div class="myPanelHeading">
                         <b>{{emp.name}}</b>
                 </div>

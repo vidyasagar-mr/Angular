@@ -5,6 +5,7 @@
                 <ng-content select=".myPanelHeading">
                 </ng-content>
             </div>
+            <!-- appColorDisplay is custom attribute directive created to change color on mouse over -->
             <div class="panel-body" [hidden]="isHidden" appColorDisplay [defaultColor]="'transparent'" [highlightedColor]="'yellow'">
                 <ng-content select=".myPanelBody">
                 </ng-content>
