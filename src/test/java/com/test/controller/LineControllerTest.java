@@ -1,7 +1,5 @@
 package com.test.controller;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -49,6 +47,16 @@ public class LineControllerTest {
 				.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
 				.andExpect(jsonPath("$.longestLine").exists())
 				.andExpect(jsonPath("$.longestLine").value("2"));
+
+	}
+	
+	@Test
+	public void getAllLinesTest() throws Exception {
+		when(lineService.getAllLinesFromFile()).thenReturn(getLines());
+		mockMvc.perform(get("/lines/getall").accept(MediaType.APPLICATION_JSON)).andDo(print())
+				.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
+				.andExpect(jsonPath("$.Lines").exists())
+				.andExpect(jsonPath("$.Lines.[0].lineNr").value(0));
 
 	}
 	

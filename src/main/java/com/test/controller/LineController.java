@@ -40,5 +40,16 @@ public class LineController {
 		return new ResponseEntity<Output>(output, HttpStatus.OK);
 
 	}
+	
+	@GetMapping("lines/getall")
+	public ResponseEntity<Lines> getAllLines() {
+		log.info("--Fetching all the lines from file.--");
+		Lines lines = lineService.getAllLinesFromFile();
+		if (lines != null) {
+			log.info("--All Lines are fetched from file.--");
+		}
+		return new ResponseEntity<Lines>(lines, HttpStatus.OK);
+
+	}
 
 }

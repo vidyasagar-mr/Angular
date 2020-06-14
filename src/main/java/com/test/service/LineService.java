@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
@@ -68,6 +71,16 @@ public class LineService {
 			log.error("Error Occured during reading line from file. {}",e.getMessage());
 		}
 		return output;
+	}
+
+	public Lines getAllLinesFromFile() {
+		Lines lines=null;
+		try {
+			 lines = XML_MAPPER.readValue(new File(appProperties.getOutputFilePath()), Lines.class);
+		} catch (IOException e) {
+			log.error("Error Occured during reading lines from file. {}",e.getMessage());
+		}
+		return lines;
 	}
 
 }

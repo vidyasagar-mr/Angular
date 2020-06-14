@@ -42,6 +42,11 @@ public class LineServiceTest {
 	public void getLineWithMaxLengthTest() {
 		Assertions.assertEquals(2, lineService.getLineWithMaxLength().getLongestLine());
 	}
+	
+	@Test
+	public void getAllLinesFromFileTest() {
+		Assertions.assertEquals(getLines().getLines().size(), lineService.getAllLinesFromFile().getLines().size());
+	}
 
 	private Lines getLines() {
 		Lines lines = new Lines();
