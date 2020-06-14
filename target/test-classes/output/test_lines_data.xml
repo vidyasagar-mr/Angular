@@ -1,0 +1,23 @@
+<lines>
+  <line>
+    <x0>23</x0>
+    <x1>45</x1>
+    <y1>36</y1>
+    <y2>78</y2>
+    <lineNr>0</lineNr>
+  </line>
+  <line>
+    <x0>345</x0>
+    <x1>345</x1>
+    <y1>456</y1>
+    <y2>789</y2>
+    <lineNr>1</lineNr>
+  </line>
+  <line>
+    <x0>456</x0>
+    <x1>567</x1>
+    <y1>789</y1>
+    <y2>905</y2>
+    <lineNr>2</lineNr>
+  </line>
+</lines>

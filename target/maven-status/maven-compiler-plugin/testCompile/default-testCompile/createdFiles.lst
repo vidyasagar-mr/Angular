@@ -1,0 +1,3 @@
+com\test\AppTest.class
+com\test\controller\LineControllerTest.class
+com\test\service\LineServiceTest.class
