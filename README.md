@@ -13,7 +13,7 @@ URL:- http://localhost:8080/lines/getall
 Note:- Before Consuming Service please specify the location where File needs to be saved
 in application.properties file.
 
--> Unit Testing is covered for each unit
--> Successully Tested all three services in Rest Client POSTMAN
--> Maximum length of the Line is identified by substracting last coordinate with initial coordinate
+- Unit Testing is covered for each unit
+- Successully Tested all three services in Rest Client POSTMAN
+- Maximum length of the Line is identified by substracting last coordinate with initial coordinate
 for each Line.
